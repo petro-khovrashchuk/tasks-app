@@ -69,12 +69,12 @@ public class TaskServiceImplTest {
   }
 
   @Test
-  public void testCompleteTaskMarksExistingTaskAsCompleted() {
+  public void testMarkDoneAsCompleted() {
     Task task = new Task(7L, "Existing Task", "Existing task description", false);
     when(taskRepository.containsKey(7L)).thenReturn(true);
     when(taskRepository.get(7L)).thenReturn(task);
 
-    Task completedTask = taskService.completeTask(7L);
+    Task completedTask = taskService.markDone(7L);
 
     assertSame(task, completedTask);
     assertEquals(Long.valueOf(7L), completedTask.getId());
@@ -84,10 +84,10 @@ public class TaskServiceImplTest {
   }
 
   @Test
-  public void testCompleteTaskThrowsWhenTaskIsMissing() {
+  public void testMarkDoneIsMissing() {
     when(taskRepository.containsKey(99L)).thenReturn(false);
 
-    TaskNotFound exception = assertThrows(TaskNotFound.class, () -> taskService.completeTask(99L));
+    TaskNotFound exception = assertThrows(TaskNotFound.class, () -> taskService.markDone(99L));
 
     assertEquals("Task with id 99 not found", exception.getMessage());
     verify(taskRepository).containsKey(99L);

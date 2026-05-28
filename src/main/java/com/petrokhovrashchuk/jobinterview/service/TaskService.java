@@ -9,5 +9,5 @@ public interface TaskService {
 
   Task createTask(Task task);
 
-  Task completeTask(long id);
+  Task markDone(long id);
 }

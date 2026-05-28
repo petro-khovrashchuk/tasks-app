@@ -32,7 +32,7 @@ public class TaskServiceImpl implements TaskService {
   }
 
   @Override
-  public Task completeTask(final long id) {
+  public Task markDone(final long id) {
     if (!taskRepository.containsKey(id)) {
       throw new TaskNotFound(String.format("Task with id %d not found", id));
     }

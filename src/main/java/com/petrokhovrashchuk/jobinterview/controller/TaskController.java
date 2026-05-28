@@ -36,9 +36,9 @@ public class TaskController {
     return taskMapper.modelToDto(taskService.createTask(model));
   }
 
-  @PutMapping("/{id}/complete")
-  public TaskDto completeTask(@PathVariable final long id) {
-    return taskMapper.modelToDto(taskService.completeTask(id));
+  @PutMapping("/{id}/done")
+  public TaskDto markDone(@PathVariable final long id) {
+    return taskMapper.modelToDto(taskService.markDone(id));
   }
 
 }
