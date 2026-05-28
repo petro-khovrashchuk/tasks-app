@@ -1,6 +1,6 @@
 package com.petrokhovrashchuk.jobinterview.service;
 
-import com.petrokhovrashchuk.jobinterview.exception.TaskNotFound;
+import com.petrokhovrashchuk.jobinterview.exception.TaskNotFoundException;
 import com.petrokhovrashchuk.jobinterview.model.Task;
 import com.petrokhovrashchuk.jobinterview.repository.TaskRepository;
 import java.util.Collection;
@@ -34,7 +34,7 @@ public class TaskServiceImpl implements TaskService {
   @Override
   public Task markDone(final long id) {
     if (!taskRepository.containsKey(id)) {
-      throw new TaskNotFound(String.format("Task with id %d not found", id));
+      throw new TaskNotFoundException(String.format("Task with id %d not found", id));
     }
 
     final Task task = taskRepository.get(id);

@@ -1,7 +1,7 @@
 package com.petrokhovrashchuk.jobinterview.controller;
 
 import com.petrokhovrashchuk.jobinterview.dto.ExceptionDto;
-import com.petrokhovrashchuk.jobinterview.exception.TaskNotFound;
+import com.petrokhovrashchuk.jobinterview.exception.TaskNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -17,8 +17,8 @@ public class TaskExceptionHandler {
         .body(new ExceptionDto(e.getMessage()));
   }
 
-  @ExceptionHandler(TaskNotFound.class)
-  public ResponseEntity<ExceptionDto> handleTaskNotFoundException(TaskNotFound e) {
+  @ExceptionHandler(TaskNotFoundException.class)
+  public ResponseEntity<ExceptionDto> handleTaskNotFoundException(TaskNotFoundException e) {
     return ResponseEntity
         .status(HttpStatus.NOT_FOUND)
         .body(new ExceptionDto(e.getMessage()));

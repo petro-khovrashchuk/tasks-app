@@ -10,7 +10,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import com.petrokhovrashchuk.jobinterview.exception.TaskNotFound;
+import com.petrokhovrashchuk.jobinterview.exception.TaskNotFoundException;
 import com.petrokhovrashchuk.jobinterview.model.Task;
 import com.petrokhovrashchuk.jobinterview.repository.TaskRepository;
 import java.util.Collection;
@@ -87,7 +87,7 @@ public class TaskServiceImplTest {
   public void testMarkDoneIsMissing() {
     when(taskRepository.containsKey(99L)).thenReturn(false);
 
-    TaskNotFound exception = assertThrows(TaskNotFound.class, () -> taskService.markDone(99L));
+    TaskNotFoundException exception = assertThrows(TaskNotFoundException.class, () -> taskService.markDone(99L));
 
     assertEquals("Task with id 99 not found", exception.getMessage());
     verify(taskRepository).containsKey(99L);
