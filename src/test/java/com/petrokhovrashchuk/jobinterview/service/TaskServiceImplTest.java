@@ -29,9 +29,6 @@ public class TaskServiceImplTest {
   @Autowired
   private TaskServiceImpl taskService;
 
-  /**
-   * Test for TaskService's createTask method. Verifies task creation with valid data.
-   */
   @Test
   public void testCreateTask() {
     Task task = new Task(null, "Sample Task", "This is a sample task description", false);
@@ -46,10 +43,6 @@ public class TaskServiceImplTest {
     verify(taskRepository).put(1L, task);
   }
 
-  /**
-   * Test for TaskService's createTask method. Ensures that size is called twice during task
-   * creation for id generation.
-   */
   @Test
   public void testCreateTaskGeneratesUniqueIdIsCalledTwice() {
     Task firstTask = new Task(null, "First Task", "First task description", false);
