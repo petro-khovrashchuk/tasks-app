@@ -4,6 +4,7 @@ import com.petrokhovrashchuk.jobinterview.dto.ExceptionDto;
 import com.petrokhovrashchuk.jobinterview.exception.TaskNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -14,6 +15,13 @@ public class TaskExceptionHandler {
   public ResponseEntity<ExceptionDto> handleException(Exception e) {
     return ResponseEntity
         .status(HttpStatus.INTERNAL_SERVER_ERROR)
+        .body(new ExceptionDto(e.getMessage()));
+  }
+
+  @ExceptionHandler(HttpMessageNotReadableException.class)
+  public ResponseEntity<ExceptionDto> handleException(HttpMessageNotReadableException e) {
+    return ResponseEntity
+        .status(HttpStatus.BAD_REQUEST)
         .body(new ExceptionDto(e.getMessage()));
   }
 
