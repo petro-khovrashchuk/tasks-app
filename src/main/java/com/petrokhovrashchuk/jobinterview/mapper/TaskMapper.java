@@ -12,8 +12,7 @@ public class TaskMapper {
     return new TaskDto(task.getId(), task.getTitle(), task.getDescription(), task.isCompleted());
   }
 
-  public Collection<TaskDto> modelsToDtos(
-      final Collection<Task> tasks) {
+  public Collection<TaskDto> modelsToDtos(final Collection<Task> tasks) {
     return tasks.stream().map(this::modelToDto).toList();
   }
 

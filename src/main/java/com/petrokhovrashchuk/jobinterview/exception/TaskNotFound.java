@@ -2,7 +2,7 @@ package com.petrokhovrashchuk.jobinterview.exception;
 
 public class TaskNotFound extends RuntimeException {
 
-  public TaskNotFound(String message) {
+  public TaskNotFound(final String message) {
     super(message);
   }
 }
