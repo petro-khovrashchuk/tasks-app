@@ -35,7 +35,7 @@ public class TaskMapperImplTest {
     assertEquals(task.getId(), taskDto.id(), "Expected matching IDs");
     assertEquals(task.getTitle(), taskDto.title(), "Expected matching titles");
     assertEquals(task.getDescription(), taskDto.description(), "Expected matching descriptions");
-    assertEquals(task.isCompleted(), taskDto.completed(), "Expected matching completed status");
+    assertEquals(task.isDone(), taskDto.done(), "Expected matching done status");
   }
 
   @Test
@@ -53,16 +53,16 @@ public class TaskMapperImplTest {
     assertEquals(task1.getTitle(), taskDto1.title(), "Expected matching titles for task 1");
     assertEquals(task1.getDescription(), taskDto1.description(),
         "Expected matching descriptions for task 1");
-    assertEquals(task1.isCompleted(), taskDto1.completed(),
-        "Expected matching completed status for task 1");
+    assertEquals(task1.isDone(), taskDto1.done(),
+        "Expected matching done status for task 1");
 
     TaskDto taskDto2 = taskDtos.get(1);
     assertEquals(task2.getId(), taskDto2.id(), "Expected matching IDs for task 2");
     assertEquals(task2.getTitle(), taskDto2.title(), "Expected matching titles for task 2");
     assertEquals(task2.getDescription(), taskDto2.description(),
         "Expected matching descriptions for task 2");
-    assertEquals(task2.isCompleted(), taskDto2.completed(),
-        "Expected matching completed status for task 2");
+    assertEquals(task2.isDone(), taskDto2.done(),
+        "Expected matching done status for task 2");
   }
 
 }

@@ -38,7 +38,7 @@ public class TaskServiceImpl implements TaskService {
     }
 
     final Task task = taskRepository.get(id);
-    task.setCompleted(true);
+    task.setDone(true);
 
     return task;
   }

@@ -7,17 +7,17 @@ public class Task {
   private Long id;
   private String title;
   private String description;
-  private boolean completed;
+  private boolean done;
 
   public Task(
       final Long id,
       final String title,
       final String description,
-      final boolean completed) {
+      final boolean done) {
     this.id = id;
     this.title = title;
     this.description = description;
-    this.completed = completed;
+    this.done = done;
   }
 
   @Override
@@ -26,13 +26,13 @@ public class Task {
       return false;
     }
     final Task task = (Task) o;
-    return id == task.id && completed == task.completed && Objects.equals(title, task.title)
+    return id == task.id && done == task.done && Objects.equals(title, task.title)
         && Objects.equals(description, task.description);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, description, completed);
+    return Objects.hash(id, title, description, done);
   }
 
   public Long getId() {
@@ -59,12 +59,12 @@ public class Task {
     this.description = description;
   }
 
-  public boolean isCompleted() {
-    return completed;
+  public boolean isDone() {
+    return done;
   }
 
-  public void setCompleted(final boolean completed) {
-    this.completed = completed;
+  public void setDone(final boolean done) {
+    this.done = done;
   }
 
   @Override
@@ -73,7 +73,7 @@ public class Task {
         "id=" + id +
         ", title='" + title + '\'' +
         ", description='" + description + '\'' +
-        ", completed=" + completed +
+        ", done=" + done +
         '}';
   }
 }

@@ -39,7 +39,7 @@ public class TaskServiceImplTest {
     assertEquals(Long.valueOf(1L), createdTask.getId());
     assertEquals("Sample Task", createdTask.getTitle());
     assertEquals("This is a sample task description", createdTask.getDescription());
-    assertFalse(createdTask.isCompleted());
+    assertFalse(createdTask.isDone());
     verify(taskRepository).put(1L, task);
   }
 
@@ -78,7 +78,7 @@ public class TaskServiceImplTest {
 
     assertSame(task, completedTask);
     assertEquals(Long.valueOf(7L), completedTask.getId());
-    assertTrue(completedTask.isCompleted());
+    assertTrue(completedTask.isDone());
     verify(taskRepository).containsKey(7L);
     verify(taskRepository).get(7L);
   }
