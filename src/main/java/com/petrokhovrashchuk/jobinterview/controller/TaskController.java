@@ -5,6 +5,7 @@ import com.petrokhovrashchuk.jobinterview.mapper.TaskMapper;
 import com.petrokhovrashchuk.jobinterview.model.Task;
 import com.petrokhovrashchuk.jobinterview.service.TaskService;
 import java.util.Collection;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,7 +21,7 @@ public class TaskController {
   private final TaskService taskService;
   private final TaskMapper taskMapper;
 
-  public TaskController(final TaskService taskService, final TaskMapper taskMapper) {
+  private TaskController(final TaskService taskService, final TaskMapper taskMapper) {
     this.taskService = taskService;
     this.taskMapper = taskMapper;
   }

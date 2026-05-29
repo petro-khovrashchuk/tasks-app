@@ -19,7 +19,7 @@ public class TaskExceptionHandler {
   }
 
   @ExceptionHandler(HttpMessageNotReadableException.class)
-  public ResponseEntity<ExceptionDto> handleException(HttpMessageNotReadableException e) {
+  public ResponseEntity<ExceptionDto> handleHttpMessageNotReadableException(HttpMessageNotReadableException e) {
     return ResponseEntity
         .status(HttpStatus.BAD_REQUEST)
         .body(new ExceptionDto(e.getMessage()));
