@@ -6,29 +6,6 @@
   },
   "item": [
     {
-      "name": "get all",
-      "request": {
-        "method": "get",
-        "header": [],
-        "auth": {
-          "type": "noauth"
-        },
-        "description": "",
-        "url": {
-          "raw": "http://localhost:8080/tasks",
-          "protocol": "http",
-          "host": [
-            "localhost:8080"
-          ],
-          "path": [
-            "tasks"
-          ],
-          "query": [],
-          "variable": []
-        }
-      }
-    },
-    {
       "name": "create task",
       "request": {
         "method": "post",
@@ -58,12 +35,35 @@
         },
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"title\": \"Complete Job Interview Project\",\n  \"description\": \"Finish the backend implementation and verify API endpoints.\",\n  \"completed\": false\n}",
+          "raw": "{\n  \"title\": \"Complete Job Interview Project\",\n  \"description\": \"Finish the backend implementation and verify API endpoints.\",\n  \"done\": false\n}",
           "options": {
             "raw": {
               "language": "json"
             }
           }
+        }
+      }
+    },
+    {
+      "name": "get all",
+      "request": {
+        "method": "get",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "http://localhost:8080/tasks",
+          "protocol": "http",
+          "host": [
+            "localhost:8080"
+          ],
+          "path": [
+            "tasks"
+          ],
+          "query": [],
+          "variable": []
         }
       }
     },
