@@ -1,0 +1,7 @@
+target
+.git
+.idea
+docs
+README.md
+*.iml
+.mvn/wrapper/dists
